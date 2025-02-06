@@ -9,5 +9,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/brand-list',[BrandController::class,'brandList']);
-Route::get('/clear-cache',[MaintenenceController::class,'clearAppCache']);
+

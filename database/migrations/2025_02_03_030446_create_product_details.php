@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('product_details', function (Blueprint $table) {
             $table->id();
-            $table->string('img1',500);
-            $table->string('img2',500);
-            $table->string('img3',500);
-            $table->string('img4',500);
+            $table->string('image1',500);
+            $table->string('image2',500);
+            $table->string('image3',500);
+            $table->string('image4',500);
 
             $table->longText('des');
             $table->string('color',100);

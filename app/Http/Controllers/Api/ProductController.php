@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\CustomerProfile;
 use App\Models\Product;
 use App\Models\ProductDetail;
 use App\Models\ProductReview;
@@ -53,6 +54,20 @@ class ProductController extends Controller
                 $query->select('id','name');
             }])->get();
         });
+    }
+
+    public function createProductReview(Request $request){
+          $user_id=$request->header('id');
+          $profile=CustomerProfile::where('user_id',$user_id)->first();
+          if($profile){
+            ProductReview::updateOrCreate(
+                ['customer_id'=>$profile->id,'product_id'=>$request->input('product_id')],
+                $request->input()
+            );
+          }
+
+          return response()->json(['status'=>'success','message'=>'Review created successfully']);
+
     }
 
 

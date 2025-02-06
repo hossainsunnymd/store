@@ -18,6 +18,8 @@ return new class extends Migration
             $table->decimal('price',10,2);
             $table->boolean('discount');
             $table->decimal('discount_price',10,2);
+            $table->string('image',200);
+            $table->integer('stock');
             $table->float('star');
             $table->enum('remark',['popular','new','top','special','trending','regular']);
 
@@ -29,7 +31,8 @@ return new class extends Migration
 
             $table->foreign('brand_id')->references('id')->on('brands')
             ->restrictOnDelete()->cascadeOnUpdate();
-            $table->timestamp('create4d_at')->useCurrent();
+
+            $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
