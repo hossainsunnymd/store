@@ -10,14 +10,10 @@ use Illuminate\Support\Facades\Cache;
 class CategoryController extends Controller
 {
     public function categoryList(){
-        $data=Cache::remember('categoryList', 3600, function () {
+        return Cache::remember('categoryList', 3600, function () {
             return Category::all();
         });
 
-        return response()->json([
-            'status' => 'success',
-            'data' => $data
-        ]);
 
     }
 }

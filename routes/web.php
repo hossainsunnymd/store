@@ -9,4 +9,4 @@ Route::get('/', function () {
 });
 
 
-
+Route::get('/clear-app-cache', [MaintenenceController::class,'clearAppCache']);

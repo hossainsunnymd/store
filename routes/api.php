@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\PolicyController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\MaintenenceController;
 use App\Http\Middleware\TokenVerificationMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,9 +36,6 @@ Route::get('/list-product-slider',[ProductController::class,'listProductSlider']
 //Product details
 Route::get('/product-details-by-id/{id}',[ProductController::class,'productDetailsById']);
 
-//Product Reviews
-Route::get('/list-product-review',[ProductController::class,'listProductReview']);
-
 //policy
 Route::get('/policy-by-type/{type}',[PolicyController::class,'policyByType']);
 
@@ -53,3 +51,14 @@ Route::get('/read-profile',[ProfileController::class,'readProfile'])->middleware
 
 //product review
 Route::post('/create-product-review',[ProductController::class,'createProductReview'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/list-product-review/{id}',[ProductController::class,'listProductReview'])->middleware([TokenVerificationMiddleware::class]);
+
+//wish list
+Route::get('/create-wish-list',[ProductController::class,'createWishList'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/product-wish-list',[ProductController::class,'productWishList'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/delete-wish-list',[ProductController::class,'deleteWishList'])->middleware([TokenVerificationMiddleware::class]);
+
+//cart list
+Route::post('/create-cart-list',[ProductController::class,'createCartList'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/product-cart-list',[ProductController::class,'productCartList'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/delete-cart-list',[ProductController::class,'deleteCartList'])->middleware([TokenVerificationMiddleware::class]);

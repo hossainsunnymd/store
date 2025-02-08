@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('rating',10);
 
             $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('customer_profile_id');
 
-            $table->foreign('customer_id')->references('id')->on('customer_profiles')
+            $table->foreign('customer_profile_id')->references('id')->on('customer_profiles')
             ->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('product_id')->references('id')->on('products')
             ->restrictOnDelete()->cascadeOnUpdate();

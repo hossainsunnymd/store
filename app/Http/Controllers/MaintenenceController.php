@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Artisan;
 
 class MaintenenceController extends Controller
 {
-    public function clearAppCache(){
+        public function clearAppCache(){
         Artisan::call('cache:clear');
     }
 }
