@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
 
             $table->decimal('total',15,2);
-            $table->decimal('discount',15,2);
             $table->decimal('vat',15,2);
             $table->decimal('payable',15,2);
             $table->string('cus_details',500);

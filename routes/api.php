@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\InvoiceController;
 use App\Http\Controllers\Api\PolicyController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProfileController;
@@ -62,3 +63,6 @@ Route::get('/delete-wish-list',[ProductController::class,'deleteWishList'])->mid
 Route::post('/create-cart-list',[ProductController::class,'createCartList'])->middleware([TokenVerificationMiddleware::class]);
 Route::get('/product-cart-list',[ProductController::class,'productCartList'])->middleware([TokenVerificationMiddleware::class]);
 Route::get('/delete-cart-list',[ProductController::class,'deleteCartList'])->middleware([TokenVerificationMiddleware::class]);
+
+//invoice
+Route::post('/create-invoice',[InvoiceController::class,'createInvoice'])->middleware([TokenVerificationMiddleware::class]);
