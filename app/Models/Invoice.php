@@ -17,4 +17,9 @@ class Invoice extends Model
         'payment_status',
         'user_id'
     ];
+
+    public function invoiceProduct()
+    {
+        return $this->hasMany(InvoiceProduct::class);
+    }
 }

@@ -7,7 +7,6 @@ use App\Http\Controllers\Api\PolicyController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\MaintenenceController;
 use App\Http\Middleware\TokenVerificationMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -66,3 +65,9 @@ Route::get('/delete-cart-list',[ProductController::class,'deleteCartList'])->mid
 
 //invoice
 Route::post('/create-invoice',[InvoiceController::class,'createInvoice'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/list-invoice',[InvoiceController::class,'listInvoice'])->middleware([TokenVerificationMiddleware::class]);
+
+
+//payment
+
+Route::post('/payment-success',[InvoiceController::class,'paymentSuccess']);

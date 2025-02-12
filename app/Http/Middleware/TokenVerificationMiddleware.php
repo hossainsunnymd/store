@@ -19,7 +19,7 @@ class TokenVerificationMiddleware
         $token=$request->cookie('token');
         $result=JWTToken::verifyToken($token);
         if($result=='unauthorize'){
-            return redirect('userLogin');
+            return response('unauthorize');
         }else{
             $request->headers->set('id',$result->userId);
             $request->headers->set('email',$result->userEmail);
