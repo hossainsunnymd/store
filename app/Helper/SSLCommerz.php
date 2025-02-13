@@ -11,9 +11,10 @@ class SSLCommerz{
     static function initiatePayment($customerProfile,$payable,$tran_id,$user_email){
         try{
             $ssl= SslcommerzAccount::first();
+            // return $ssl;
             $response = Http::asForm()->post('https://sandbox.sslcommerz.com/gwprocess/v3/api.php',[
                 "store_id"=>$ssl->store_id,
-                "store_passwd"=>$ssl->store_passwd,
+                "store_passwd"=>$ssl->store_pass,
                 "total_amount"=>$payable,
                 "currency"=>$ssl->currency,
                 "tran_id"=>$tran_id,
